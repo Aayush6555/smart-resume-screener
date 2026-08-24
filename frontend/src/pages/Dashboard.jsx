@@ -22,12 +22,15 @@ function Dashboard() {
         }
 
         // Fetch saved resumes
-        const savedResponse = await fetch("http://localhost:5000/api/resumes", {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${token}`,
+        const savedResponse = await fetch(
+          "https://smart-resume-screener-0haw.onrender.com/api/resumes",
+          {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
           },
-        });
+        );
 
         const savedData = await savedResponse.json();
 
@@ -49,7 +52,7 @@ function Dashboard() {
 
         // Fetch shortlisted resumes
         const shortlistedResponse = await fetch(
-          "http://localhost:5000/api/resumes/shortlisted",
+          "https://smart-resume-screener-0haw.onrender.com/api/resumes/shortlisted",
           {
             method: "GET",
             headers: {
@@ -109,13 +112,16 @@ function Dashboard() {
     try {
       setLoading(true);
 
-      const response = await fetch("http://localhost:5000/api/resumes/upload", {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${token}`,
+      const response = await fetch(
+        "https://smart-resume-screener-0haw.onrender.com/api/resumes/upload",
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          body: formData,
         },
-        body: formData,
-      });
+      );
 
       const data = await response.json();
 
@@ -193,7 +199,7 @@ function Dashboard() {
       }
 
       const response = await fetch(
-        `http://localhost:5000/api/resumes/${resumeId}`,
+        `https://smart-resume-screener-0haw.onrender.com/api/resumes/${resumeId}`,
         {
           method: "DELETE",
           headers: {
