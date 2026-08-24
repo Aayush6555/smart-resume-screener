@@ -1,0 +1,385 @@
+/* ================= MAIN PAGE ================= */
+
+.dashboard-page {
+  min-height: 100vh;
+  background: #f4f7fb;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.dashboard-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* ================= HEADER ================= */
+
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.dashboard-header h1 {
+  font-size: 32px;
+  color: #1f3553;
+  margin-bottom: 10px;
+}
+
+.dashboard-header p {
+  color: #667085;
+  font-size: 16px;
+}
+
+/* ================= UPLOAD CARD ================= */
+
+.dashboard-upload-card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(31, 53, 83, 0.08);
+  margin-bottom: 30px;
+}
+
+.dashboard-upload-card h2 {
+  color: #1f3553;
+  margin-bottom: 25px;
+}
+
+/* ================= FORM ================= */
+
+.form-group {
+  margin-bottom: 22px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  color: #344054;
+  margin-bottom: 8px;
+}
+
+/* ================= FILE INPUT ================= */
+
+.file-input-container input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d0d5dd;
+  border-radius: 10px;
+  box-sizing: border-box;
+  background: #f9fafb;
+  cursor: pointer;
+}
+
+.selected-file {
+  margin-top: 8px;
+  color: #2563eb;
+  font-size: 14px;
+}
+
+/* ================= TEXTAREA ================= */
+
+.job-description-textarea {
+  width: 100%;
+  min-height: 180px;
+  padding: 15px;
+  border: 1px solid #d0d5dd;
+  border-radius: 10px;
+  font-size: 15px;
+  font-family: inherit;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.job-description-textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+/* ================= BUTTON ================= */
+
+.analyze-button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  background: #2563eb;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.analyze-button:hover {
+  background: #1d4ed8;
+}
+
+.analyze-button:disabled {
+  background: #93c5fd;
+  cursor: not-allowed;
+}
+
+/* ================= RESULT CARD ================= */
+
+.dashboard-result-card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(31, 53, 83, 0.08);
+  margin-bottom: 30px;
+}
+
+.dashboard-result-card > h2 {
+  text-align: center;
+  color: #1f3553;
+  margin-bottom: 30px;
+}
+
+/* ================= RESUME INFO ================= */
+
+.resume-info {
+  background: #f8fafc;
+  border: 1px solid #e4e7ec;
+  padding: 20px;
+  border-radius: 14px;
+  margin-bottom: 25px;
+}
+
+.resume-info p {
+  margin: 0;
+  color: #344054;
+  word-break: break-word;
+}
+
+/* ================= SCORE ================= */
+
+.score-box {
+  margin-top: 20px;
+}
+
+.score-box span {
+  display: block;
+  font-size: 14px;
+  color: #667085;
+  margin-bottom: 8px;
+}
+
+.score-value {
+  font-size: 28px;
+  font-weight: bold;
+  color: #2563eb;
+  margin-bottom: 10px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 12px;
+  background: #e5e7eb;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #2563eb;
+  border-radius: 10px;
+  transition: width 0.4s ease;
+}
+
+/* ================= ANALYSIS SECTION ================= */
+
+.analysis-section {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #eaecf0;
+}
+
+.analysis-section h2,
+.analysis-section h3 {
+  color: #1f3553;
+  margin-bottom: 15px;
+}
+
+.analysis-section > p {
+  color: #475467;
+  line-height: 1.6;
+}
+
+/* ================= SKILLS ================= */
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.skill-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 15px;
+  background: #dbeafe;
+  color: #1d4ed8;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.missing-skill-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 15px;
+  background: #fee2e2;
+  color: #dc2626;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.no-skills {
+  color: #98a2b3;
+  margin: 0;
+}
+
+/* ================= CATEGORY CARDS ================= */
+
+.categories-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.category-card {
+  background: #f8fafc;
+  border: 1px solid #e4e7ec;
+  border-radius: 14px;
+  padding: 20px;
+}
+
+.category-card h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #1f3553;
+}
+
+/* ================= SHORTLISTED RESUMES ================= */
+
+/*
+This is important:
+The shortlisted resumes should appear as separate cards.
+Without proper card styling, the text and skills can appear
+scattered across the dashboard.
+*/
+
+.shortlisted-resume-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.shortlisted-resume-card {
+  background: #f8fafc;
+  border: 1px solid #dbe3ef;
+  border-radius: 15px;
+  padding: 22px;
+  box-sizing: border-box;
+}
+
+.shortlisted-resume-card h4 {
+  color: #1f3553;
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 18px;
+  word-break: break-word;
+}
+
+.shortlisted-resume-card p {
+  margin: 8px 0;
+  color: #475467;
+}
+
+.shortlisted-resume-card strong {
+  color: #1f3553;
+}
+
+.shortlisted-resume-card .skills-container {
+  margin-top: 12px;
+}
+
+/* ================= RECOMMENDATION ================= */
+
+.recommendation-shortlist {
+  display: inline-block;
+  background: #dcfae6;
+  color: #15803d;
+  padding: 7px 14px;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+.recommendation-reject {
+  display: inline-block;
+  background: #fee2e2;
+  color: #dc2626;
+  padding: 7px 14px;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+/* ================= SAVED RESUME COUNT ================= */
+
+.resume-count-box {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  padding: 15px;
+  border-radius: 12px;
+  color: #1d4ed8;
+  font-weight: 600;
+}
+
+/* ================= RESPONSIVE DESIGN ================= */
+
+@media (max-width: 768px) {
+  .dashboard-page {
+    padding: 20px 12px;
+  }
+
+  .dashboard-header h1 {
+    font-size: 26px;
+  }
+
+  .dashboard-upload-card,
+  .dashboard-result-card {
+    padding: 20px;
+  }
+
+  .categories-container {
+    grid-template-columns: 1fr;
+  }
+
+  .shortlisted-resume-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-header h1 {
+    font-size: 22px;
+  }
+
+  .dashboard-header p {
+    font-size: 14px;
+  }
+
+  .skill-badge,
+  .missing-skill-badge {
+    font-size: 13px;
+    padding: 7px 12px;
+  }
+
+  .shortlisted-resume-card {
+    padding: 16px;
+  }
+}
