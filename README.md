@@ -1,361 +1,516 @@
-Smart Resume Screener
+# 🚀 Smart Resume Screener
 
-A full-stack web application that analyzes resumes against a given job description and helps identify suitable candidates based on their skills, experience, education, and overall resume match.
+> An AI-powered web application that analyzes resumes against job descriptions and provides intelligent insights, resume scores, skill analysis, and recommendations.
 
-The application uses PDF text extraction, rule-based analysis, semantic analysis, and LLM-based evaluation to provide a resume score and candidate recommendation.
 
-Features
-User Signup and Login
-JWT-based authentication
-Protected dashboard
-PDF resume upload
-Job description input
-Resume text extraction
-Required skills detection
-Found skills identification
-Missing skills identification
-Rule-based resume scoring
-Semantic similarity scoring
-Overall resume score
-Experience analysis
-Education analysis
-Strengths identification
-Skill gap detection
-Candidate recommendation
-Shortlisted candidate management
-Saved non-shortlisted candidate management
-Resume deletion
-MongoDB database storage
-Application Workflow
-User
-  │
-  ▼
-Signup
-  │
-  ▼
-Login
-  │
-  ▼
-Dashboard
-  │
-  ▼
-Upload Resume PDF + Job Description
-  │
-  ▼
-Extract Resume Text
-  │
-  ▼
-Resume Analysis
-  │
-  ├── Required Skills
-  ├── Found Skills
-  ├── Missing Skills
-  ├── Rule-Based Score
-  ├── Semantic Score
-  ├── Experience Analysis
-  └── Education Analysis
-  │
-  ▼
-Final Resume Score
-  │
-  ▼
-Candidate Recommendation
-  │
-  ├── Shortlisted Resumes
-  └── Saved Resumes
-Technologies Used
-Frontend
-React
-Vite
-React Router DOM
-CSS
-JavaScript
-Backend
-Node.js
-Express.js
-MongoDB
-Mongoose
-JSON Web Token (JWT)
-bcryptjs
-Multer
-pdf-parse
-AI and Resume Analysis
-Groq API
-LLM-based resume analysis
-Semantic analysis
-Rule-based skill matching
-Project Structure
-smart-resume-screener/
+---
+
+## 🌐 Live Demo
+
+🔗 **Frontend:** https://smart-resume-screener-sigma.vercel.app/
+
+🔗 **Backend API:** https://smart-resume-screener-0haw.onrender.com
+
+
+---
+
+# 📌 What is Smart Resume Screener?
+
+Smart Resume Screener is a full-stack AI-powered web application designed to help users analyze their resumes according to a specific job description.
+
+Users can create an account, log in securely, upload their resume, provide a job description, and receive AI-generated insights about how well their resume matches the job requirements.
+
+The application also provides a personalized dashboard where users can manage their analyzed resumes.
+
+---
+
+# 🎯 Core Capabilities
+
+- 🔐 Secure User Authentication
+- 👤 User Signup and Login
+- 🛡️ JWT-based Authorization
+- 📄 Resume Upload
+- 📝 Job Description Input
+- 🤖 AI-powered Resume Analysis
+- 📊 Resume Match Score
+- 🧠 Skill Analysis
+- 💡 AI-generated Recommendations
+- 💾 Save Resume Analysis
+- ⭐ Shortlist Resumes
+- 🗑️ Delete Resumes
+- 📋 Personalized Dashboard
+
+---
+
+# ✨ Key Features
+
+## 🔐 Secure Authentication
+
+The application provides a complete authentication system where users can:
+
+- Create a new account
+- Log in with registered credentials
+- Access protected dashboard features
+- Maintain authentication using JWT tokens
+
+Passwords are securely hashed using `bcryptjs`.
+
+---
+
+## 📄 Resume Upload
+
+Users can upload their resumes and provide a job description for analysis.
+
+The backend processes the uploaded resume and uses the provided information for AI-powered screening.
+
+---
+
+## 🤖 AI-Powered Resume Analysis
+
+The application integrates with the **Groq API** to analyze resumes.
+
+The AI analyzes the resume in relation to the provided job description and generates useful insights.
+
+The analysis can help users understand:
+
+- Resume relevance
+- Matching skills
+- Skill gaps
+- Resume-job compatibility
+- Improvement recommendations
+
+---
+
+## 📊 Resume Score
+
+The system provides a resume score based on the analysis.
+
+This helps users quickly understand how well their resume matches the provided job description.
+
+---
+
+## 🧠 Skill Analysis
+
+The application identifies important skills related to the resume and job requirements.
+
+This helps users understand which skills are relevant and which areas may need improvement.
+
+---
+
+## 💡 AI Recommendations
+
+Based on the resume analysis, the application provides recommendations to help improve the resume and increase its relevance to the selected job description.
+
+---
+
+## 📋 Personalized Dashboard
+
+After logging in, users are redirected to their dashboard.
+
+The dashboard allows users to:
+
+- View analyzed resumes
+- View saved resume information
+- Shortlist resumes
+- Manage resume records
+- Delete resumes
+
+---
+
+## 🏗️ System Architecture
+
+```mermaid
+flowchart TD
+
+    U[User]
+    F[React + Vite Frontend<br/>Deployed on Vercel]
+    A[Authentication<br/>Signup / Login<br/>JWT]
+
+    B[Node.js + Express Backend<br/>Deployed on Render]
+
+    G[Groq AI<br/>Resume Analysis]
+    M[(MongoDB Atlas<br/>Database)]
+
+    R[Resume Analysis Results<br/>Score / Skills / Recommendations]
+
+    D[Dashboard]
+
+    UP[Resume Upload<br/>+ Job Description]
+
+    MR[Manage Resumes<br/>Save / Shortlist / Delete]
+
+
+    U --> F
+    F --> A
+
+    A --> B
+
+    B --> G
+    G --> B
+
+    B --> M
+    M --> B
+
+    B --> R
+
+    R --> D
+
+    B --> UP
+    UP --> D
+
+    B --> MR
+    MR --> D
+
+    A --> D
+```
+
+---
+
+# 🔄 Application Workflow
+
+```text
+User Signup / Login
+        │
+        ▼
+JWT Authentication
+        │
+        ▼
+Access Dashboard
+        │
+        ▼
+Upload Resume
+        │
+        ▼
+Enter Job Description
+        │
+        ▼
+Resume Processing
+        │
+        ▼
+Groq AI Analysis
+        │
+        ▼
+Resume Score + Skills + Recommendations
+        │
+        ▼
+Save / Shortlist / Delete Resume
+```
+
+---
+
+# 📂 Project Structure
+
+```text
+smart-resume-screener
 │
-├── backend/
+├── backend
 │   │
-│   ├── config/
+│   ├── config
+│   │   └── db.js
 │   │
-│   ├── controllers/
+│   ├── controllers
 │   │   ├── authController.js
 │   │   └── resumeController.js
 │   │
-│   ├── middleware/
+│   ├── middleware
 │   │   ├── authMiddleware.js
 │   │   └── uploadMiddleware.js
 │   │
-│   ├── models/
-│   │   ├── Resume.js
-│   │   └── User.js
+│   ├── models
+│   │   ├── User.js
+│   │   └── Resume.js
 │   │
-│   ├── routes/
+│   ├── routes
 │   │   ├── authRoutes.js
 │   │   └── resumeRoutes.js
 │   │
-│   ├── services/
-│   │   ├── groqService.js
-│   │   ├── llmService.js
-│   │   └── resumeAnalyzer.js
+│   ├── services
+│   │   └── groqService.js
 │   │
 │   ├── .env
 │   ├── package.json
 │   └── server.js
 │
-├── frontend/
+├── frontend
 │   │
-│   ├── public/
+│   ├── public
 │   │
-│   ├── src/
-│   │   │
-│   │   ├── assets/
-│   │   │
-│   │   ├── components/
-│   │   │   ├── Navbar.css
-│   │   │   ├── Navbar.jsx
-│   │   │   └── ProtectedRoute.jsx
-│   │   │
-│   │   ├── pages/
-│   │   │   ├── Dashboard.css
-│   │   │   ├── Dashboard.jsx
+│   ├── src
+│   │   ├── components
+│   │   ├── pages
 │   │   │   ├── Home.jsx
-│   │   │   ├── Login.css
 │   │   │   ├── Login.jsx
-│   │   │   ├── Signup.css
-│   │   │   └── Signup.jsx
+│   │   │   ├── Signup.jsx
+│   │   │   └── Dashboard.jsx
 │   │   │
-│   │   ├── App.css
 │   │   ├── App.jsx
-│   │   ├── index.css
 │   │   └── main.jsx
 │   │
-│   ├── package.json
-│   └── index.html
+│   └── package.json
 │
+├── .gitignore
 └── README.md
-Installation and Setup
-1. Clone the Repository
-git clone <repository-url>
+```
 
-Move into the project folder:
+---
 
+# 🛠️ Tech Stack
+
+## 🎨 Frontend
+
+- React.js
+- Vite
+- JavaScript
+- CSS
+- React Router DOM
+
+## ⚙️ Backend
+
+- Node.js
+- Express.js
+
+## 🗄️ Database
+
+- MongoDB Atlas
+- Mongoose
+
+## 🔐 Authentication
+
+- JSON Web Token (JWT)
+- bcryptjs
+
+## 🤖 AI Integration
+
+- Groq API
+
+## 📁 File Upload
+
+- Multer
+
+## ☁️ Deployment
+
+- Vercel — Frontend Deployment
+- Render — Backend Deployment
+- MongoDB Atlas — Cloud Database
+
+---
+
+# 🚀 Getting Started
+
+## 1️⃣ Clone the Repository
+
+```bash
+git clone https://github.com/Aayush6555/smart-resume-screener.git
+```
+
+Move into the project directory:
+
+```bash
 cd smart-resume-screener
-2. Backend Setup
+```
 
-Open the backend folder:
+---
 
+## 2️⃣ Backend Setup
+
+Move into the backend folder:
+
+```bash
 cd backend
-
-Install the required dependencies:
-
-npm install
-
-Create a .env file inside the backend folder.
-
-Example:
-
-PORT=5000
-
-MONGODB_URI=your_mongodb_connection_string
-
-JWT_SECRET=your_jwt_secret_key
-
-GROQ_API_KEY=your_groq_api_key
-
-Start the backend server:
-
-node server.js
-
-The backend will run on:
-
-http://localhost:5000
-3. Frontend Setup
-
-Open a new terminal and move to the frontend folder:
-
-cd frontend
+```
 
 Install dependencies:
 
+```bash
 npm install
+```
+
+Create a `.env` file:
+
+```env
+PORT=5000
+
+JWT_SECRET=your_jwt_secret
+
+MONGO_URI=your_mongodb_connection_string
+
+GROQ_API_KEY=your_groq_api_key
+```
+
+Start the backend:
+
+```bash
+npm run dev
+```
+
+The backend will run on:
+
+```text
+http://localhost:5000
+```
+
+---
+
+## 3️⃣ Frontend Setup
+
+Open another terminal and move into the frontend folder:
+
+```bash
+cd frontend
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
 
 Start the frontend:
 
+```bash
 npm run dev
+```
 
 The frontend will run on:
 
+```text
 http://localhost:5173
-Authentication
+```
 
-The application uses JWT authentication.
+---
 
-Signup
+# 🔌 API Endpoints
 
-A new user can create an account using:
+## Authentication
 
-Full Name
-Email Address
-Password
+### Signup
 
-The user information is stored securely in MongoDB, and the password is hashed using bcryptjs.
+```text
+POST /api/auth/signup
+```
 
-Login
+### Login
 
-After successful login:
+```text
+POST /api/auth/login
+```
 
-A JWT token is generated.
-The token is stored in local storage.
-User information is stored in local storage.
-The user is redirected to the dashboard.
-Protected Routes
+---
 
-The dashboard and resume-related features are protected using authentication middleware and a frontend protected route.
+## Resume Management
 
-Resume Analysis
+### Get Resumes
 
-The user uploads a resume in PDF format and provides a job description.
+```text
+GET /api/resumes
+```
 
-The application performs the following steps:
+### Upload / Analyze Resume
 
-1. PDF Text Extraction
+```text
+POST /api/resumes
+```
 
-The uploaded PDF is processed and converted into text.
+### Delete Resume
 
-2. Skill Analysis
+```text
+DELETE /api/resumes/:id
+```
 
-The application identifies:
+> Protected routes require a valid JWT token.
 
-Required skills from the job description
-Skills found in the resume
-Skills missing from the resume
-3. Resume Scoring
+---
 
-The resume is evaluated using:
+# 🔐 Environment Variables
 
-Rule-based score
-Semantic score
-Skills score
-Experience score
-Education score
+The backend requires the following environment variables:
 
-These results are used to generate the final resume score.
+| Variable | Description |
+|---|---|
+| `PORT` | Port used by the backend server |
+| `JWT_SECRET` | Secret key used for JWT authentication |
+| `MONGO_URI` | MongoDB Atlas connection string |
+| `GROQ_API_KEY` | API key for Groq AI integration |
 
-4. Candidate Analysis
+⚠️ **Never upload your `.env` file to GitHub.**
 
-The system also provides:
+---
 
-Experience summary
-Education summary
-Candidate strengths
-Skill gaps
-Detailed justification
-5. Recommendation
+# 🌐 Deployment
 
-Based on the resume analysis, the candidate receives a recommendation such as:
+## Frontend
 
-Shortlist
+The React + Vite frontend is deployed on:
 
-or
+**Vercel**
 
-Consider
-Resume Management
+https://smart-resume-screener-sigma.vercel.app/
 
-The dashboard separates resumes into different sections.
+---
 
-Shortlisted Resumes
+## Backend
 
-Candidates with the recommendation:
+The Node.js + Express backend is deployed on:
 
-Shortlist
+**Render**
 
-are displayed in the Shortlisted Resumes section.
+https://smart-resume-screener-0haw.onrender.com
 
-Saved Resumes
+---
 
-Candidates who are not shortlisted are displayed in the Saved Resumes section.
+## Database
 
-This prevents shortlisted candidates from appearing twice.
+The application uses:
 
-Delete Resume
+**MongoDB Atlas**
 
-Users can delete a saved resume.
+for cloud database storage.
 
-The deleted resume is removed from the MongoDB database and the dashboard updates accordingly.
+---
 
-Database
+# 🧠 Key Learning Outcomes
 
-The project uses MongoDB to store:
+Through this project, I gained practical experience with:
 
-User Data
-Name
-Email
-Hashed Password
-Resume Data
-Candidate Name
-Resume File Name
-Resume Text
-Job Description
-Required Skills
-Found Skills
-Missing Skills
-Resume Scores
-Experience Summary
-Education Summary
-Strengths
-Skill Gaps
-Justification
-Recommendation
-Security
+- Building a complete full-stack web application
+- React and Vite development
+- Node.js and Express.js backend development
+- REST API development
+- MongoDB and Mongoose
+- JWT-based authentication
+- Password hashing using bcryptjs
+- File uploads using Multer
+- AI integration using the Groq API
+- Environment variable management
+- Connecting frontend and backend applications
+- Cloud deployment using Vercel
+- Backend deployment using Render
+- Cloud database integration with MongoDB Atlas
 
-The project includes:
+---
 
-Password hashing using bcrypt
-JWT authentication
-Protected routes
-User-specific resume access
-Authentication checks before resume operations
-Future Improvements
+# 🔮 Future Enhancements
 
-Possible future improvements include:
+Future improvements may include:
 
-Resume download
-Resume comparison between candidates
-Advanced filtering and sorting
-Recruiter/admin dashboard
-Email notifications
-Interview scheduling
-Cloud-based resume storage
-More advanced AI models
-Deployment using cloud services
-Screenshots
+- More detailed AI resume feedback
+- Advanced resume scoring
+- Downloadable resume analysis reports
+- Resume comparison functionality
+- Improved dashboard analytics
+- Better skill matching
+- More supported resume formats
+- Enhanced UI and user experience
 
-Screenshots can be added for:
+---
 
-Home Page
-Signup Page
-Login Page
-Dashboard
-Resume Upload
-Resume Analysis Result
-Shortlisted Resumes
-Saved Resumes
-Conclusion
+# 👨‍💻 Author
 
-Smart Resume Screener provides an automated solution for analyzing resumes against job descriptions. The application combines rule-based matching, semantic analysis, and LLM-based analysis to evaluate candidates and generate meaningful recommendations.
+**Aayush Kumar Singh**
 
-The system helps organize candidates into shortlisted and saved categories while providing detailed information about skills, experience, education, strengths, and skill gaps.
+
+---
+
+## ⭐ Support
+
+If you found this project useful or interesting, consider giving the repository a ⭐ on GitHub!
